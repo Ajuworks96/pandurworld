@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Pluto Sans", "Outfit", system-ui, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Pluto Sans", "Poppins", system-ui, sans-serif;
+  --bg-pandur: #0B0705;
+  --accent-pandur: #E58A38;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: auto !important; /* Managed by Lenis */
+    background-color: #0B0705;
+    color: #F7F0E6;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #0B0705;
+    color: #F7F0E6;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0705;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #281C15;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E58A38;
+  }
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom Cursor */
+@media (pointer: fine) {
+  body.has-custom-cursor {
+    cursor: none;
+  }
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor select,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Masking Portal Utility */
+.portal-mask {
+  clip-path: circle(12% at 50% 50%);
+  transition: clip-path 0.1s ease-out;
+}
+
+/* Grain Overlay Effect */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Hide Scrollbar helper */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   OREO.COM ANIMATION UTILITIES
+   ============================================================ */
+
+/* Outlined font effect matching attached reference image */
+.text-outlined-amber {
+  -webkit-text-stroke: 2.5px #E58A38;
+  color: transparent;
+}
+
+/* Clip-path reveal transitions */
+.clip-reveal-up {
+  clip-path: inset(100% 0% 0% 0%);
+  transition: clip-path 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.clip-reveal-up.is-visible {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.clip-reveal-circle {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.clip-reveal-circle.is-visible {
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* Text line clip overflow */
+.text-line-clip {
+  overflow: hidden;
+}
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Oreo.com-style split text character */
+.char-split {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+/* Arc cookie track — GPU optimized */
+.arc-track {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Cookie node — spring transform */
+.arc-cookie-node {
+  will-change: transform;
+  transform-origin: center bottom;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+}
+
+/* Glow halo */
+.pandur-glow {
+  box-shadow: 0 0 40px rgba(229, 138, 56, 0.3), 0 0 80px rgba(229, 138, 56, 0.15);
+}
+
+.pandur-glow-lg {
+  box-shadow: 0 0 60px rgba(229, 138, 56, 0.4), 0 0 120px rgba(229, 138, 56, 0.2);
+}
+
+/* Oreo.com magnetic button base */
+.magnetic-base {
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Wavy section separator */
+.wave-divider {
+  position: relative;
+  overflow: hidden;
+}
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 80px;
+  background: #0B0705;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-25%);
+}
+
+/* Fan photo tile hover glow */
+.photo-tile:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(229, 138, 56, 0.15);
+}
+
+/* Color block CTA giant text */
+.cta-outlined {
+  -webkit-text-stroke: 2.5px #E58A38;
+  color: transparent;
+}
+
+/* Image reveal progress bar */
+.progress-bar {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.progress-bar.loaded {
+  transform: scaleX(1);
+}
+
+/* Recipe card wavy offset */
+@media (min-width: 768px) {
+  .recipe-wave-1 { margin-top: 0; }
+  .recipe-wave-2 { margin-top: 48px; }
+  .recipe-wave-3 { margin-top: 24px; }
+}
+
+/* Premium glass card */
+.glass-card {
+  background: rgba(22, 15, 11, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(40, 28, 21, 0.8);
+}
+
+/* Reduce motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
